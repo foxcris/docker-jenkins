@@ -2,6 +2,7 @@ FROM jenkins/jenkins:lts
 
 MAINTAINER foxcris
 
+USER root
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get install -y nano less unattended-upgrades && apt-get clean
 
 #install docker
@@ -12,7 +13,6 @@ RUN apt-get update && apt-get -y install docker-ce docker-ce-cli containerd.io &
 RUN usermod -a -G docker jenkins
 
 RUN touch /var/log/cron.log
-
 VOLUME /var/log
 
 COPY docker-entrypoint.sh /
