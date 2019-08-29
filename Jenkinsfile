@@ -13,7 +13,15 @@ pipeline {
     }
     stage('Build') {
       steps {
-        echo 'test'
+         dockerBuildAndPublish {
+            repositoryName('foxcris/docker-jenkins')
+            tag('dev')
+            registryCredentials('0aed4dd5-52df-4f7d-aa77-2b69818a6646')
+            forcePull(true)
+            createFingerprints(false)
+            skipDecorate()
+         }
+	}
       }
     }
   }
