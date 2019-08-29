@@ -21,7 +21,6 @@ pipeline {
             createFingerprints(false)
             skipDecorate()
          }
-	}
       }
     }
   }
