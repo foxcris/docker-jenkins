@@ -14,10 +14,10 @@ pipeline {
     stage('Build') {
       steps {
         echo 'test'
-      }
-      wrappers {
+        wrappers {
         	preBuildCleanup()
     	 }
+      }
     }
   }
 }
