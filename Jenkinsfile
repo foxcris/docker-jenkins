@@ -8,11 +8,21 @@ node () {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ef650f3a-c509-4072-93af-5afb1dbe6079', url: 'https://github.com/foxcris/docker-jenkins.git']]]) 
 	}
 	stage ('docker-jenkins_dev - Build') {
- 	
+ 	 wrappers {
+        	preBuildCleanup()
+    	 }
 // Unable to convert a build step referring to "hudson.plugins.ws__cleanup.PreBuildCleanup". Please verify and convert manually if required.
 // Unable to convert a build step referring to "hudson.plugins.build__timeout.BuildTimeoutWrapper". Please verify and convert manually if required.
 // Unable to convert a build step referring to "hudson.plugins.timestamper.TimestamperBuildWrapper". Please verify and convert manually if required.
 // Unable to convert a build step referring to "com.cloudbees.dockerpublish.DockerBuilder". Please verify and convert manually if required. 
+	 dockerBuildAndPublish {
+            repositoryName('foxcris/docker-jenkins')
+            tag('dev')
+            registryCredentials('0aed4dd5-52df-4f7d-aa77-2b69818a6646')
+            forcePull(true)
+            createFingerprints(false)
+            skipDecorate()
+         }
 	}
 	stage ('docker-jenkins_dev - Post build actions') {
 /*
