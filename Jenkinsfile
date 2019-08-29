@@ -14,9 +14,6 @@ pipeline {
     stage('Build') {
       steps {
         echo 'test'
-        wrappers {
-        	preBuildCleanup()
-    	 }
       }
     }
   }
