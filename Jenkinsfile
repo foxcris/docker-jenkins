@@ -13,6 +13,7 @@ pipeline {
     }//stage
     stage('Build') {
       steps {
+        git(url: 'https://github.com/foxcris/docker-jenkins.git', branch: 'master')
       }//steps
     }//stage
   }//stages
