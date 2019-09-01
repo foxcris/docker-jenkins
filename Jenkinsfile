@@ -13,7 +13,14 @@ pipeline {
     }//stage
     stage('Build') {
       steps {
-        git(url: 'https://github.com/foxcris/docker-jenkins.git', branch: 'master')
+        dockerBuildAndPublish {
+            repositoryName('foxcris/docker-jenkins')
+            tag('dev')
+            registryCredentials('0aed4dd5-52df-4f7d-aa77-2b69818a6646')
+            forcePull(true)
+            createFingerprints(false)
+            skipDecorate()
+         }//dockerBuildAndPublish
       }//steps
     }//stage
   }//stages
