@@ -6,7 +6,7 @@ USER root
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get install -y nano less unattended-upgrades && apt-get clean
 
 #install docker
-RUN apt-get update && apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common && apt-get clean
+RUN apt-get update && apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common wget && apt-get clean
 #install docker
 RUN wget -O /tmp/gpg_docker.key https://download.docker.com/linux/ubuntu/gpg; \
   if [ `gpg /tmp/gpg_docker.key | grep pub | wc -l` -ne 1 ]; then echo "Mehrere Schlüssel im Docker Keyring gefunden. Abbruch."; exit 23; fi; \
