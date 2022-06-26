@@ -20,7 +20,4 @@ RUN usermod -a -G docker jenkins
 RUN touch /var/log/cron.log
 VOLUME /var/log
 
-COPY docker-entrypoint.sh /
-RUN chmod 755 /docker-entrypoint.sh
-ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD  ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
