@@ -5,7 +5,7 @@ Unattended-updated are run via cron to keep the container up-to-date with securi
  
 ## Configuration
  
-###Configuration files, log files, buisness data
+### Configuration files, log files, buisness data
 The following directories can be loaded from the host to keep the data and configuration files out of the container:
 
  | PATH in container | Description |
