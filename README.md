@@ -20,7 +20,8 @@ The following directories can be loaded from the host to keep the data and confi
  | ---------------------- | ----------- |
  | latest | Latest stable version of the container |
  | stable | Latest stable version of the container |
- | dev | latest development version of the container. Do not use in production environments! |
+ | master | latest development version of the container. Do not use in production environments! |
+ | dev | deprecated development version |
 
 ## Usage
 
